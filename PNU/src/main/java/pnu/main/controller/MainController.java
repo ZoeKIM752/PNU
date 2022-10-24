@@ -9,6 +9,11 @@ public class MainController {
 
 	@RequestMapping(value="/main.do", method = RequestMethod.GET)
 	public String mainPage() {
-		return "main.html";
+		return "main.jsp";
+	}
+	
+	@RequestMapping("/loginPage.do")
+	public String loginPage() {
+		return "login.jsp";
 	}
 }
