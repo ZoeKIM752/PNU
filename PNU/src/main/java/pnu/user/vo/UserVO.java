@@ -2,7 +2,7 @@ package pnu.user.vo;
 
 public class UserVO {
 
-	private String id;
+	private String userId;
 	
 	private String pwd;
 	
@@ -16,12 +16,12 @@ public class UserVO {
 	
 	private String email;
 
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPwd() {
