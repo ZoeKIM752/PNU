@@ -1,5 +1,7 @@
 package pnu.main.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,8 +18,9 @@ public class MainController {
 	private UserService userService;
 
 	@RequestMapping(value="/login.do", method = RequestMethod.POST)
-	public String mainPage(@ModelAttribute UserVO user) throws Exception {
+	public String mainPage(HttpServletRequest request, @ModelAttribute UserVO user) throws Exception {
 		if(userService.selectPwd(user.getUserId(), user.getPwd())){
+			userService.loginProcess(request, user);
 			return "main.jsp";
 		} else {
 			return "login.jsp";

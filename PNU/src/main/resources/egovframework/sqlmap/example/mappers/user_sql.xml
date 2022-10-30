@@ -9,13 +9,24 @@
 		<result property="deptCd"	column="dept_cd"/>
 		<result property="job"		column="job"/>
 		<result property="phone"	column="phone"/>
-		<result property="email"	column="email"/>
+		<result property="email"	column="phone"/>
 	</resultMap>
 
 	<select id="selectPwd" parameterType="String" resultType="String">
 		<![CDATA[ 
 			SELECT 
 				pwd
+			FROM 
+				tb_user
+			WHERE
+				user_id = #{userId}
+		]]>
+	</select>
+
+	<select id="selectUserInfo" parameterType="String" resultType="userMap">
+		<![CDATA[ 
+			SELECT 
+				user_id, name, dept_cd, job, phone, phone
 			FROM 
 				tb_user
 			WHERE

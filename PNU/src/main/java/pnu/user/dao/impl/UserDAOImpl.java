@@ -13,6 +13,11 @@ public class UserDAOImpl extends EgovAbstractMapper implements UserDAO {
 	public String selectPwd(String userId) throws Exception {
 		return selectOne("User.selectPwd", userId);
 	}
+
+	@Override
+	public UserVO selectUserInfo(String userId) throws Exception {
+		return selectOne("User.selectUserInfo", userId);
+	}
 	
 	@Override
 	public int insertUser(UserVO user) throws Exception {

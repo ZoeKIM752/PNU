@@ -1,5 +1,8 @@
 package pnu.user.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,21 @@ public class UserServiceImpl implements UserService {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public Boolean loginProcess(HttpServletRequest request, UserVO user) throws Exception {
+		setSession(request, user);
+		return true;
+	}
+	
+	public void setSession(HttpServletRequest request, UserVO user) throws Exception {
+	    UserVO userInfo = userDAO.selectUserInfo(user.getUserId());
+	    
+	    if (userInfo != null) {
+	        HttpSession httpSession = request.getSession(true);
+	        httpSession.setAttribute("USER", userInfo);
+	    } 
 	}
 
 	@Override
