@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import pnu.user.dao.UserDAO;
 import pnu.user.service.UserService;
+import pnu.user.vo.UserVO;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,6 +20,11 @@ public class UserServiceImpl implements UserService {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public int insertUser(UserVO user) throws Exception {
+		return userDAO.insertUser(user);
 	}
 	
 }
