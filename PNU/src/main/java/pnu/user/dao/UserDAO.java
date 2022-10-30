@@ -2,6 +2,6 @@ package pnu.user.dao;
 
 public interface UserDAO {
 
-	public String selectPwd(String id);
+	public String selectPwd(String id) throws Exception;
 	
 }

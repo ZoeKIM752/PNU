@@ -9,8 +9,8 @@ import pnu.user.dao.UserDAO;
 public class UserDAOImpl extends EgovAbstractMapper implements UserDAO {
 	
 	@Override
-	public String selectPwd(String id) {
-		return selectOne("User.selectPwd", id);
+	public String selectPwd(String userId) throws Exception {
+		return selectOne("User.selectPwd", userId);
 	}
 	
 }

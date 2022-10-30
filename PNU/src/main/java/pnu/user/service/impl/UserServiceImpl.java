@@ -13,8 +13,8 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	@Override
-	public Boolean selectPwd(String id, String password) {
-		if(password.equals(userDAO.selectPwd(id))){
+	public Boolean selectPwd(String userId, String password) throws Exception {
+		if(password.equals(userDAO.selectPwd(userId))){
 			return true;
 		} else {
 			return false;
