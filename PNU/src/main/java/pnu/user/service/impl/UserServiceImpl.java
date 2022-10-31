@@ -26,18 +26,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Boolean loginProcess(HttpServletRequest request, UserVO user) throws Exception {
-		setSession(request, user);
-		return true;
-	}
-	
-	public void setSession(HttpServletRequest request, UserVO user) throws Exception {
-	    UserVO userInfo = userDAO.selectUserInfo(user.getUserId());
+	public Boolean setSession(HttpSession httpSession, String userId) throws Exception {
+	    UserVO userInfo = userDAO.selectUserInfo(userId);
 	    
 	    if (userInfo != null) {
-	        HttpSession httpSession = request.getSession(true);
 	        httpSession.setAttribute("USER", userInfo);
-	    } 
+	    }
+	    
+		return userInfo != null;
 	}
 
 	@Override
