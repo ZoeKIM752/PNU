@@ -9,5 +9,7 @@ public interface UserDAO {
 	public UserVO selectUserInfo(String userId) throws Exception;
 
 	public int insertUser(UserVO user) throws Exception;
+
+	public int updateUser(UserVO user) throws Exception;
 	
 }

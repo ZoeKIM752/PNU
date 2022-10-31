@@ -2,7 +2,6 @@ package pnu.user.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +42,30 @@ public class UserController {
 	@RequestMapping("/pwdConfirmPage.do")
 	public String pwdConfirmPage() {
 		return "user/pwdConfirm.jsp";
+	}
+	
+	@RequestMapping("/userUpdatePage.do")
+	public ModelAndView userUpdatePage(@ModelAttribute UserVO user) throws Exception {
+		if(userService.selectPwd(user.getUserId(), user.getPwd())){
+			ModelAndView mav = new ModelAndView("user/userUpdate.jsp");
+			
+			List<DeptVO> dept = deptService.selectDeptList();
+			mav.addObject("dept", dept);
+				
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("main.jsp");
+
+			return mav;
+		}
+	}
+	
+	@RequestMapping("/userUpdate.do")
+	public String userUpdate(HttpSession httpSession, @ModelAttribute UserVO user) throws Exception {
+		userService.updateUser(user);
+		userService.setSession(httpSession, user.getUserId());
+		
+		return "main.jsp";
 	}
 	
 }

@@ -45,4 +45,19 @@
 		]]>
 	</insert>
 	
+	<update id="updateUser" parameterType="UserMap">
+		<![CDATA[ 
+			UPDATE tb_user
+			SET
+				pwd = #{pwd},
+				name = #{name},
+				dept_cd = #{deptCd},
+				job = #{job},
+				phone = #{phone},
+				email = #{email}
+			WHERE
+				user_id = #{userId}
+		]]>
+	</update>
+	
 </mapper>
