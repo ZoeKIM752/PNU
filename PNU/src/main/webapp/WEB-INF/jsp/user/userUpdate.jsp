@@ -67,32 +67,30 @@
 	</form>
 </body>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 <script>
 	
 	window.onload = function(){
-		
-		var okBtn = document.getElementById("okBtn");
-		var delBtn = document.getElementById("delBtn");
-		
-		okBtn.onclick = function() {
-			var pwd = document.getElementById("pwdInput").value;
-			var pwdCheck = document.getElementById("pwdCheckInput").value;
+
+		$("#okBtn").click(function() {
+			var pwd = $("#pwdInput").val();
+			var pwdCheck = $("#pwdCheckInput").val();
 			
 			if(pwd == pwdCheck){
-				document.getElementById("userUpdateForm").submit();
+				$("#userUpdateForm").submit();
 			} else {
 				alert("비밀번호를 확인해주세요.");
 			}
-		}
+		});
 		
-		delBtn.onclick = function() {
+		$("#delBtn").click(function() {
 			var del = confirm("탈퇴하시겠습니까?");
 			if(del) {
 				window.location.href='userDelete.do';
 			} else {
 				return false;
 			}
-		}
+		});
 		
 	} 
 	

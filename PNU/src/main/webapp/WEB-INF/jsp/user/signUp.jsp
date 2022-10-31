@@ -61,22 +61,21 @@
 	</form>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <script>
 	
 	window.onload = function(){
 		
-		var okBtn = document.getElementById("okBtn");
-		
-		okBtn.onclick = function() {
-			var pwd = document.getElementById("pwdInput").value;
-			var pwdCheck = document.getElementById("pwdCheckInput").value;
+		$("#okBtn").click(function() {
+			var pwd = $("#pwdInput").val();
+			var pwdCheck = $("#pwdCheckInput").val();
 			
 			if(pwd == pwdCheck){
-				document.getElementById("signUpForm").submit();
+				$("#signUpForm").submit();
 			} else {
 				alert("비밀번호를 확인해주세요.");
 			}
-		}
+		});
 	} 
 	
 </script>
