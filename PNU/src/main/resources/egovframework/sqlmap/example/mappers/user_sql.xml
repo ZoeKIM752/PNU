@@ -24,7 +24,7 @@
 		]]>
 	</select>
 
-	<select id="selectUserInfo" parameterType="String" resultType="userMap">
+	<select id="selectUserInfo" parameterType="String" resultMap="UserVO">
 		<![CDATA[ 
 			SELECT 
 				user_id, name, U.dept_cd, dept_nm, job, phone, email
