@@ -16,7 +16,7 @@
 	<button type="button" style="float: left" onclick="window.location.href='logout.do'"> 
 		로그아웃 </button>
 	
-	<button type="button" style="float: left" onclick="window.location.href='userUpdatePage.do'"> 
+	<button type="button" style="float: left" onclick="window.location.href='pwdConfirmPage.do'"> 
 		회원정보수정 </button>
 </body>
 </html>

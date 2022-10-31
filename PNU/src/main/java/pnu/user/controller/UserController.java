@@ -2,6 +2,9 @@ package pnu.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,6 +38,11 @@ public class UserController {
 		userService.insertUser(user);
 		
 		return "redirect:/loginPage.do";
+	}
+	
+	@RequestMapping("/pwdConfirmPage.do")
+	public String pwdConfirmPage() {
+		return "user/pwdConfirm.jsp";
 	}
 	
 }
