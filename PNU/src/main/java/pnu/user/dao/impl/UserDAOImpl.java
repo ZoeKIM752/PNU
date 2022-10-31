@@ -28,5 +28,10 @@ public class UserDAOImpl extends EgovAbstractMapper implements UserDAO {
 	public int updateUser(UserVO user) throws Exception {
 		return update("User.updateUser", user);
 	}
+
+	@Override
+	public int deleteUser(String userId) throws Exception {
+		return delete("User.deleteUser", userId);
+	}
 	
 }

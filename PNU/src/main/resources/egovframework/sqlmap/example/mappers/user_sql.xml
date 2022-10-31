@@ -60,4 +60,12 @@
 		]]>
 	</update>
 	
+	<delete id="deleteUser" parameterType="String">
+		<![CDATA[ 
+			DELETE FROM tb_user
+			WHERE
+				user_id = #{userId}
+		]]>
+	</delete>
+	
 </mapper>

@@ -67,5 +67,15 @@ public class UserController {
 		
 		return "main.jsp";
 	}
+
+	@RequestMapping("/userDelete.do")
+	public String userDelete(HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("USER");
+		session.removeAttribute("USER");
+		
+		userService.deleteUser(user.getUserId());
+		
+		return "redirect:/loginPage.do";
+	}
 	
 }

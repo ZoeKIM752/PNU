@@ -84,6 +84,16 @@
 				alert("비밀번호를 확인해주세요.");
 			}
 		}
+		
+		delBtn.onclick = function() {
+			var del = confirm("탈퇴하시겠습니까?");
+			if(del) {
+				window.location.href='userDelete.do';
+			} else {
+				return false;
+			}
+		}
+		
 	} 
 	
 </script>
