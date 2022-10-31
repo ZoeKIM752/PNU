@@ -7,9 +7,10 @@
 		<result property="pwd"		column="pwd"/>
 		<result property="name"		column="name"/>
 		<result property="deptCd"	column="dept_cd"/>
+		<result property="deptNm"	column="dept_nm"/>
 		<result property="job"		column="job"/>
 		<result property="phone"	column="phone"/>
-		<result property="email"	column="phone"/>
+		<result property="email"	column="email"/>
 	</resultMap>
 
 	<select id="selectPwd" parameterType="String" resultType="String">
@@ -26,9 +27,10 @@
 	<select id="selectUserInfo" parameterType="String" resultType="userMap">
 		<![CDATA[ 
 			SELECT 
-				user_id, name, dept_cd, job, phone, phone
+				user_id, name, U.dept_cd, dept_nm, job, phone, email
 			FROM 
-				tb_user
+				tb_user U
+				LEFT JOIN tb_dept_cd D ON (U.dept_cd = D.dept_cd) 
 			WHERE
 				user_id = #{userId}
 		]]>
