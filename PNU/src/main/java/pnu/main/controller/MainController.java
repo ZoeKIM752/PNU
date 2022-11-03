@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
-
+	
 	@RequestMapping(value="/main.do", method = RequestMethod.GET)
 	public String mainPage() {
-		return "main.html";
+		return "main.jsp";
 	}
+	
 }
