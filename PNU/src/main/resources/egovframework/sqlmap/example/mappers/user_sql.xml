@@ -10,6 +10,7 @@
 		<result property="job" 		column="job" />
 		<result property="phone" 	column="phone"/>
 		<result property="email" 	column="email" />
+		<result property="deptNm"	column="dept_nm" />
 	</resultMap>
 	
 	<select id="selectPwd" parameterType="String" resultType="String">
@@ -31,5 +32,17 @@
 				(#{userId}, #{pwd}, #{name}, #{deptCd}, #{job}, #{phone}, #{email});
 		]]>
 	</insert>
+	
+	<select id="selectUserInfo" parameterType="String" resultMap="UserVO">
+		<![CDATA[
+			SELECT
+				user_id, name, dept_nm, job, phone, email
+			FROM
+				tb_user A
+				INNER JOIN tb_dept_cd B ON A.dept_cd = B.dept_cd
+			WHERE
+				user_id = #{userId};
+		]]>
+	</select>
 	
 </mapper>

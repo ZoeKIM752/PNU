@@ -8,4 +8,5 @@ public interface UserService {
 	
 	public int insertUser(UserVO user);
 	
+	public UserVO selectUserInfo(String userId);
 }

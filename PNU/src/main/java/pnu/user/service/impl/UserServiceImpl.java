@@ -23,4 +23,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.insertUser(user);
 	}
 
+	@Override
+	public UserVO selectUserInfo(String userId) {
+		return userDAO.selectUserInfo(userId);
+	}
+
 }
