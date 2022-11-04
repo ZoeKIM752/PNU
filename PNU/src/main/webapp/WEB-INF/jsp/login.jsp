@@ -28,8 +28,9 @@
 					<td><input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요"/></td>
 				</tr>
 			</table>
-			<button type="button">button</button>
-			<button type="submit">submit</button>
+			<br>
+			<button type="button" onclick="window.location.href='signUpPage.do'">회원가입</button>
+			<button type="submit">로그인</button>
 			<button type="reset">reset</button>
 		</fieldset>
 	</form>
