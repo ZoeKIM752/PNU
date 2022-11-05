@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+	
+	<resultMap type="boardMap" id="BoardVO">
+		<id property="boardId"				column="board_id"/>
+		<result property="title"			column="title"/>
+		<result property="contents"			column="contents"/>
+		<result property="writerId"			column="writer_id"/>
+		<result property="registrationDate"	column="registration_date"/>
+		<result property="used"				column="used"/>
+	</resultMap>
+	
+	<insert id="insertBoard" parameterType="boardMap">
+		<![CDATA[
+			INSERT INTO tb_board
+				(title, contents, writer_id, registration_date)
+			VALUES
+				(#{title}, #{contents}, #{writerId}, NOW())
+		]]>
+	</insert>
+	
+</mapper>

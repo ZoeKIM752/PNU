@@ -18,5 +18,8 @@
 	
 	<button type="button" style="float: left" onclick="window.location.href='pwdConfirmPage.do'"> 
 		회원정보수정 </button>
+		
+	<button type="button" style="float: left" onclick="window.location.href='boardInsertPage.do'"> 
+		게시글 등록 </button>
 </body>
 </html>
