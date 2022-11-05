@@ -1,5 +1,7 @@
 package pnu.board.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int insertBoard(BoardVO board) throws Exception {
 		return boardDAO.insertBoard(board);
+	}
+
+	@Override
+	public List<BoardVO> selectBoardList() throws Exception {
+		return boardDAO.selectBoardList();
 	}
 
 }
