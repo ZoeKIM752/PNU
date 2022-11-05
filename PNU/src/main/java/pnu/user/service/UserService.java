@@ -6,6 +6,8 @@ import pnu.user.vo.UserVO;
 
 public interface UserService {
 
+	public Boolean selectUsed(String userId) throws Exception;
+
 	public Boolean selectPwd(String userId, String password) throws Exception;
 	
 	public Boolean setSession(HttpSession httpSession, String userId) throws Exception;

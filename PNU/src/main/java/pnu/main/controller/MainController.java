@@ -20,7 +20,8 @@ public class MainController {
 
 	@RequestMapping(value="/login.do", method = RequestMethod.POST)
 	public String mainPage(HttpServletRequest request, HttpSession httpSession, @ModelAttribute UserVO user) throws Exception {
-		if(userService.selectPwd(user.getUserId(), user.getPwd())){
+		if(userService.selectUsed(user.getUserId()) &&
+				userService.selectPwd(user.getUserId(), user.getPwd())){
 			userService.setSession(httpSession, user.getUserId());
 			return "main.jsp";
 		} else {

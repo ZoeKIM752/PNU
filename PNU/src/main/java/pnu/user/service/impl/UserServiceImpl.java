@@ -17,12 +17,13 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	@Override
+	public Boolean selectUsed(String userId) throws Exception {
+		return "Y".equals(userDAO.selectUsed(userId));
+	}
+
+	@Override
 	public Boolean selectPwd(String userId, String password) throws Exception {
-		if(password.equals(userDAO.selectPwd(userId))){
-			return true;
-		} else {
-			return false;
-		}
+		return password.equals(userDAO.selectPwd(userId));
 	}
 
 	@Override
