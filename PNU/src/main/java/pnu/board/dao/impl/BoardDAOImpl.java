@@ -31,4 +31,9 @@ public class BoardDAOImpl extends EgovAbstractMapper implements BoardDAO {
 		return update("Board.updateBoard", board);
 	}
 
+	@Override
+	public int deleteBoard(int boardId) throws Exception {
+		return update("Board.deleteBoard", boardId);
+	}
+
 }

@@ -47,7 +47,11 @@
 		<br>
 		<button type="button" onclick="history.back(); return false;"> 
 			이전 </button>
-		<button type="button" id="updateBtn">수정 </button>
+		
+		<c:if test="${board.writerId == USER.userId }">
+			<button type="button" id="updateBtn">수정</button>
+			<button type="button" id="deleteBtn">삭제</button>
+		</c:if>
 	</section>
 </body>
 
@@ -63,6 +67,21 @@
 					"boardId": "${board.boardId}"
 			};
 			post(path, params);
+		}
+		
+		var deleteBtn = document.getElementById("deleteBtn");
+		
+		deleteBtn.onclick = function() {
+			if(confirm("삭제하시겠습니까?") == true){
+				var path = "${pageContext.request.contextPath}/boardDelete.do";
+				var params = {
+						"boardId": "${board.boardId}"
+				};
+				post(path, params);
+			}
+			else{
+				return;
+			}
 		}
 		
 	}

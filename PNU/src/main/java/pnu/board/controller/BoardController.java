@@ -61,4 +61,11 @@ public class BoardController {
 		return "redirect:/boardInfoPage/"+Integer.toString(board.getBoardId())+".do";
 	}
 	
+	@RequestMapping("/boardDelete.do")
+	public String boardDelete(int boardId) throws Exception {
+		boardService.deleteBoard(boardId);
+		
+		return "redirect:/boardListPage.do";
+	}
+	
 }

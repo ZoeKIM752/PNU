@@ -58,4 +58,14 @@
 		]]>
 	</update>
 	
+	<update id="deleteBoard" parameterType="int">
+		<![CDATA[
+			UPDATE tb_board
+			SET
+				used = 'N'
+			WHERE
+				board_id = #{boardId};
+		]]>
+	</update>
+	
 </mapper>
