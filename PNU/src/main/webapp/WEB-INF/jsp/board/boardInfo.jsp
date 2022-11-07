@@ -13,9 +13,11 @@
 		<div style="display: flex; border-bottom: 1px solid black">
 			<h5>[<c:out value="${USER.name}"></c:out>]님 반갑습니다.</h5>
 			<div style="margin: auto;">
-				<button type="button" class="btn btn-primary" style="margin-rigth: 3px;" onclick="window.location.href='pwdConfirmPage.do'"> 
+				<button type="button" class="btn btn-primary" style="margin-rigth: 3px;" 
+					onclick="window.location.href='${pageContext.request.contextPath}/pwdConfirmPage.do'"> 
 					회원정보 </button>
-				<button type="button" class="btn btn-secondary" onclick="window.location.href='logout.do'"> 
+				<button type="button" class="btn btn-secondary" 
+					onclick="window.location.href='${pageContext.request.contextPath}/logout.do'"> 
 					로그아웃 </button>
 			</div>
 		</div>
@@ -43,8 +45,46 @@
 			</tr>
 		</table>
 		<br>
-		<button type="button" class="btn btn-secondary" onclick="history.back(); return false;"> 
+		<button type="button" onclick="history.back(); return false;"> 
 			이전 </button>
+		<button type="button" id="updateBtn">수정 </button>
 	</section>
 </body>
+
+<script>
+
+	window.onload = function(){
+		
+		var updateBtn = document.getElementById("updateBtn");
+		
+		updateBtn.onclick = function() {
+			var path = "${pageContext.request.contextPath}/boardUpdatePage.do";
+			var params = {
+					"boardId": "${board.boardId}"
+			};
+			post(path, params);
+		}
+		
+	}
+	
+	function post(path, params) {
+		
+		const form = document.createElement('form');
+		form.method = "post";
+		form.action = path;
+		
+		for (const key in params) {
+		  if (params.hasOwnProperty(key)) {
+		    const hiddenField = document.createElement('input');
+		    hiddenField.type = 'hidden';
+		    hiddenField.name = key;
+		    hiddenField.value = params[key];
+		    form.appendChild(hiddenField);
+		  }
+		}
+		
+		document.body.appendChild(form);
+		form.submit();
+	}
+</script>
 </html>

@@ -30,4 +30,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.selectBoard(boardId);
 	}
 
+	@Override
+	public int updateBoard(BoardVO board) throws Exception {
+		return boardDAO.updateBoard(board);
+	}
+
 }

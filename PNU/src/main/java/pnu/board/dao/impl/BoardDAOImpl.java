@@ -26,4 +26,9 @@ public class BoardDAOImpl extends EgovAbstractMapper implements BoardDAO {
 		return selectOne("Board.selectBoard", boardId);
 	}
 
+	@Override
+	public int updateBoard(BoardVO board) throws Exception {
+		return update("Board.updateBoard", board);
+	}
+
 }

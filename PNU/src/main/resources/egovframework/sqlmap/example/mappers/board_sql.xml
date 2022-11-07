@@ -47,4 +47,15 @@
 		]]>
 	</select>
 	
+	<update id="updateBoard" parameterType="boardMap">
+		<![CDATA[
+			UPDATE tb_board
+			SET
+				title = #{title}, 
+				contents = #{contents}
+			WHERE
+				board_id = #{boardId};
+		]]>
+	</update>
+	
 </mapper>

@@ -44,4 +44,21 @@ public class BoardController {
 		return mav;
 	}
 	
+	@RequestMapping("/boardUpdatePage.do")
+	public ModelAndView boardUpdatePage(int boardId) throws Exception {
+		ModelAndView mav = new ModelAndView("board/boardUpdate.jsp");
+		
+		BoardVO board = boardService.selectBoard(boardId);
+		mav.addObject("board", board);
+		
+		return mav;
+	}
+	
+	@RequestMapping("/boardUpdate.do")
+	public String boardUpdate(@ModelAttribute BoardVO board) throws Exception {
+		boardService.updateBoard(board);
+		
+		return "redirect:/boardInfoPage/"+Integer.toString(board.getBoardId())+".do";
+	}
+	
 }

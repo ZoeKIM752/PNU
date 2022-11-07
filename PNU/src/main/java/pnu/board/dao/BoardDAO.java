@@ -12,4 +12,6 @@ public interface BoardDAO {
 	
 	public BoardVO selectBoard(int boardId) throws Exception;
 	
+	public int updateBoard(BoardVO board) throws Exception;
+	
 }
