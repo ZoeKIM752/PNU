@@ -5,8 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시판</title>
+	<style type="text/css">
+	    tbody tr:hover { background-color: lightyellow; }
+	</style>
+	<meta charset="UTF-8">
+	<title>게시판</title>
 </head>
 <body>
 	<header>
@@ -40,7 +43,7 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${boardList}" var="item" varStatus="status">
-					<tr>
+					<tr ondblclick="trDblClickEvent('${item.boardId}')">
 						<td><c:out value="${item.boardId}"/></td>
 						<td><c:out value="${item.title}"/></td>
 						<td><c:out value="${item.writerName}"/></td>
@@ -58,4 +61,11 @@
 			게시글 등록 </button>
 	</section>
 </body>
+<script>
+	//tr 클릭 이벤트
+	function trDblClickEvent(boardId){
+		location.href = "boardInfoPage/"+boardId+".do";
+	}
+</script>
+
 </html>

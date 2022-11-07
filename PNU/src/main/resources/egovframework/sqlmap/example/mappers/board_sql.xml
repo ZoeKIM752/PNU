@@ -34,4 +34,17 @@
 		]]>
 	</select>
 	
+	<select id="selectBoard" resultMap="BoardVO" parameterType="int">
+		<![CDATA[
+			SELECT
+				board_id, title, contents, 
+				writer_id, U.name AS writer_name, registration_date
+			FROM
+				tb_board B
+				LEFT JOIN tb_user U ON (B.writer_id = U.user_id)
+			WHERE
+				B.board_id = #{boardId};
+		]]>
+	</select>
+	
 </mapper>

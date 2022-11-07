@@ -10,4 +10,6 @@ public interface BoardDAO {
 	
 	public List<BoardVO> selectBoardList() throws Exception;
 	
+	public BoardVO selectBoard(int boardId) throws Exception;
+	
 }

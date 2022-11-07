@@ -3,6 +3,7 @@ package pnu.board.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,6 +31,16 @@ public class BoardController {
 	public ModelAndView boardListPage() throws Exception {
 		ModelAndView mav = new ModelAndView("board/boardList.jsp");
 		mav.addObject("boardList", boardService.selectBoardList());
+		return mav;
+	}	
+	
+	@RequestMapping("/boardInfoPage/{boardId}.do")
+	public ModelAndView boardInfoPage(@PathVariable("boardId") int boardId) throws Exception {
+		ModelAndView mav = new ModelAndView("board/boardInfo.jsp");
+		
+		BoardVO board = boardService.selectBoard(boardId);
+		mav.addObject("board", board);
+		
 		return mav;
 	}
 	

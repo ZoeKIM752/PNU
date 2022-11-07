@@ -25,4 +25,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.selectBoardList();
 	}
 
+	@Override
+	public BoardVO selectBoard(int boardId) throws Exception {
+		return boardDAO.selectBoard(boardId);
+	}
+
 }
