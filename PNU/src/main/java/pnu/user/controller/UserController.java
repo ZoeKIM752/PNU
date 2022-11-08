@@ -38,4 +38,23 @@ public class UserController {
 		return "redirect:/loginPage.do";
 	}
 	
+	@RequestMapping(value="/pwdConfirmPage.do", method = RequestMethod.GET)
+	public String pwdConfirmPage() {
+		return "user/pwdConfirm.jsp";
+	}
+	
+	@RequestMapping(value="/userUpdatePage.do", method = RequestMethod.POST)
+	public ModelAndView userUpdatePage(@ModelAttribute UserVO user) {
+		if(userService.selectPwd(user.getUserId(), user.getPwd())) {
+			ModelAndView mav = new ModelAndView("user/userUpdate.jsp");
+			List<DeptVO> dept = deptService.selectDeptList();
+			mav.addObject("dept", dept);
+			
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("main.jsp");
+			return mav;			
+		}
+	}
+	
 }

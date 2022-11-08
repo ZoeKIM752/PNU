@@ -1,5 +1,7 @@
 package pnu.user.service;
 
+import javax.servlet.http.HttpSession;
+
 import pnu.user.vo.UserVO;
 
 public interface UserService {
@@ -9,4 +11,6 @@ public interface UserService {
 	public int insertUser(UserVO user);
 	
 	public UserVO selectUserInfo(String userId);
+	
+	public Boolean setSession(HttpSession session, String userId);
 }

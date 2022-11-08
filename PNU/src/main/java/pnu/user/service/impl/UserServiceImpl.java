@@ -1,5 +1,7 @@
 package pnu.user.service.impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserVO selectUserInfo(String userId) {
 		return userDAO.selectUserInfo(userId);
+	}
+
+	@Override
+	public Boolean setSession(HttpSession session, String userId) {
+		UserVO userInfo = userDAO.selectUserInfo(userId);
+		
+		if(userInfo != null) {
+			session.setAttribute("USER", userInfo);
+		}
+		
+		return userInfo != null;
 	}
 
 }
