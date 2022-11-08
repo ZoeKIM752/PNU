@@ -42,6 +42,7 @@ public class MainController {
 	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.removeAttribute("USER");
+		
 		return "login.jsp";
 	}
 	
