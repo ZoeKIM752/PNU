@@ -2,6 +2,8 @@ package pnu.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -55,6 +57,14 @@ public class UserController {
 			ModelAndView mav = new ModelAndView("main.jsp");
 			return mav;			
 		}
+	}
+	
+	@RequestMapping(value="/userUpdate.do", method = RequestMethod.POST)
+	public String updateUser(HttpSession session, @ModelAttribute UserVO user) {
+		userService.updateUser(user);
+		userService.setSession(session, user.getUserId());
+		
+		return "main.jsp";
 	}
 	
 }

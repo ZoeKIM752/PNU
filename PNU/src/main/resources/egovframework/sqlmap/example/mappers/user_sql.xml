@@ -45,4 +45,19 @@
 		]]>
 	</select>
 	
+	<update id="updateUser" parameterType="userMap">
+		<![CDATA[
+			UPDATE tb_user
+			SET
+				pwd = #{pwd},
+				name = #{name},
+				dept_cd = #{deptCd},
+				phone = #{phone},
+				email = #{email},
+				job = #{job}
+			WHERE
+				user_id = #{userId}
+		]]>
+	</update>
+	
 </mapper>
