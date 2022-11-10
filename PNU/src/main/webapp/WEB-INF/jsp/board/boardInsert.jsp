@@ -7,8 +7,8 @@
 <title>게시글 등록</title>
 </head>
 <body>
-	<form action="" method="post">
-		
+	<form action="boardInsert.do" method="post">
+		<input type="hidden" name="writerId" value="${USER.userId}"/>
 		<table>
 			<tr>
 				<th>제목</th>

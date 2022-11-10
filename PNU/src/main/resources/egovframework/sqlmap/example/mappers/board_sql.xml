@@ -11,6 +11,12 @@
 		<result property="used"	column="used" />
 	</resultMap>
 	
+	<select id="selectBoardList" resultMap="BoardVO">
+		<![CDATA[
+			SELECT * FROM tb_board WHERE used = 'Y';
+		]]>
+	</select>
+	
 	<insert id="insertBoard" parameterType="boardMap">
 		<![CDATA[
 			INSERT INTO tb_board (title, contents, writer_id, registration_date)
