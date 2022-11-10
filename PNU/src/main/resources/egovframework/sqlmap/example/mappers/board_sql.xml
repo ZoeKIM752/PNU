@@ -7,13 +7,20 @@
 		<result property="title"	column="title" />
 		<result property="contents"	column="contents" />
 		<result property="writerId"	column="writer_id" />
+		<result property="writerName" column="writer_name" />
 		<result property="registrationDate"	column="registration_date" />
 		<result property="used"	column="used" />
 	</resultMap>
 	
 	<select id="selectBoardList" resultMap="BoardVO">
 		<![CDATA[
-			SELECT * FROM tb_board WHERE used = 'Y';
+			SELECT 
+				board_id, title, contents, registration_date, writer_id,
+				U.name AS writer_name
+			FROM 
+				tb_board B
+			LEFT JOIN tb_user U ON (B.writer_id = U.user_id)
+			WHERE B.used = 'Y';
 		]]>
 	</select>
 	
